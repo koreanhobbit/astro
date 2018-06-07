@@ -11,7 +11,7 @@
 			<li><a href="#">
         	<img src="{{ asset('frontend/knight/img/client/client1.jpg') }}" alt="">
             <h3>Terry</h3>
-            <span>JobsDB.</span>
+            <span>JobsBank.</span>
         </a></li>
 		</ul>
 	</div>
