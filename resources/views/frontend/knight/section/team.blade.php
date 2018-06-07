@@ -11,7 +11,7 @@
 						<img style="width: 100%; height: 100%;" src="{{ asset($member->images->first()->imageMid->location) }}" alt="{{ $member->images->first()->name }}">
 						<ul>
 							@foreach($member->profilesocialmedias as $item)
-								<li><a href="{{ $item->pivot->link }}" class="fa-{{ $item->icon }}"></a></li>
+								<li><a href="{{ $item->pivot->link }}" target="_blank" class="fa-{{ $item->icon }}"></a></li>
 							@endforeach
 						</ul>
 					</div>
