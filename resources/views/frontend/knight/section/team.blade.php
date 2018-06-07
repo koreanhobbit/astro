@@ -4,8 +4,8 @@
 		<h2>team</h2>
 		<h6>Meet our lovely team members.</h6>
 		<div class="team-leader-block clearfix">
-			<div class="team-leader-box">
-				@foreach($members as $key => $member)
+			@foreach($members as $key => $member)
+				<div class="team-leader-box">
 					<div class="team-leader wow fadeInDown delay-0{{ $key + 1 }}s">
 						<div class="team-leader-shadow"></div>
 						<img style="width: 100%; height: 100%;" src="{{ asset($member->images->first()->imageMid->location) }}" alt="{{ $member->images->first()->name }}">
@@ -18,8 +18,8 @@
 					<h3 class="wow fadeInDown delay-0{{ $key + 1 }}s">{{ $member->name }}</h3>
 					<span class="wow fadeInDown delay-0{{ $key + 1 }}s">{{ $member->job_title }}</span>
 					<p class="wow fadeInDown delay-0{{ $key + 1 }}s">{{ $member->teamprofile->description }}</p>
-				@endforeach
-			</div>
+				</div>
+			@endforeach
 		</div>
 	</div>
 </section>
