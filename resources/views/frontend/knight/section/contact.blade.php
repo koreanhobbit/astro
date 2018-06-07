@@ -21,7 +21,7 @@
 				</div>
 				<ul class="social-link">
 					@foreach($setting->websitesocialmedias as $socmed)
-						<li><a href="{{ $socmed->link }}"><i class="fa fa-{{ $socmed->slug }}"></i></a></li>
+						<li><a href="{{ $socmed->link }}" target="_blank"><i class="fa fa-{{ $socmed->slug }}"></i></a></li>
 					@endforeach
 				</ul>
 			</div>
