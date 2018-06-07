@@ -19,7 +19,7 @@
 				<img style="height: 250px;" src="{{ asset($portfolio->images()->wherePivot('is_maskot', 1)->first()->imageMid->location) }}" alt="{{ $portfolio->images()->wherePivot('is_maskot', 1)->first()->name }}">
 				<h3>{{ $portfolio->title }}</h3>
 				<p>{{ strip_tags($portfolio->description) }}</p>
-				<a href="{{ $portfolio->link }}"><span><i class="fa fa-link">&nbsp;{{ $portfolio->link }}</i></span></a>
+				<a href="{{ $portfolio->link }}" target="_blank"><span><i class="fa fa-link">&nbsp;{{ $portfolio->link }}</i></span></a>
 			</div>
 		@endforeach
 	</div>
