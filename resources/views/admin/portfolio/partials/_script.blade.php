@@ -388,7 +388,7 @@
 											$('#uploadFeaturedImageTab').removeClass('active in');
 											$('#featuredImageList').addClass('active');
 											$('#uploadFeaturedImageList').removeClass('active');
-											chooseFeaturedImage();
+											editFeaturedImage();
 										},
 									});
 
@@ -440,7 +440,7 @@
 											$('#uploadFeaturedImageTab').removeClass('active in');
 											$('#featuredImageList').addClass('active');
 											$('#uploadFeaturedImageList').removeClass('active');
-											chooseFeaturedImage();
+											editFeaturedImage();
 										},
 									});
 

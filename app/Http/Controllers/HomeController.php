@@ -17,34 +17,42 @@ class HomeController extends Controller
 {
     public function index(Request $request) {
 
-        $settings = Setting::get();
+        $setting = Setting::with('websitesocialmedias')->first();
         $members = User::where('user_status', '=', 1)->get();
-    	$posts = blogpost::orderBy('updated_at', 'desc')->simplePaginate(3, ['*'], 'blog');
-        $portfolios = Portfolio::orderBy('created_at', 'desc')->simplePaginate(9,['*'], 'portfolio');
-        $products = Product::where('is_published', '=', 1)->orderBy('id', 'asc')->simplePaginate(3,['*'], 'product');
+    	// $posts = blogpost::orderBy('updated_at', 'desc')->simplePaginate(3, ['*'], 'blog');
+        $portfolios = Portfolio::orderBy('created_at', 'desc')->with('category')->get();
+        $categories = Portfolio::with('category')->select('portfolio_category_id')->distinct()->get();
+        // $products = Product::where('is_published', '=', 1)->orderBy('id', 'asc')->simplePaginate(3,['*'], 'product');
 
-    	if($request->ajax()) {
-            // if($request->title == "portfolio") {
-            //     return view('partials._portfolio', compact('portfolios'))->render();
-            // }
-
-            if($request->title == "blog") {
-    		  return view('partials._blog', ['posts' => $posts])->render();
-            }
-    	}
+    	// if($request->ajax()) {
+     //        if($request->title == "blog") {
+    	// 	  return view('partials._blog', ['posts' => $posts])->render();
+     //        }
+    	// }
 
     	//show the published post
-    	return view('home', compact('posts', 'portfolios', 'settings', 'members', 'products'));
+    	return view('index', compact('categories', 'portfolios', 'setting', 'members'));
     }
 
     //function for contact 
     public function contact(Request $request) {
-    	$cm = new Contact;
-    	$cm->name = $request->name;
-    	$cm->email = $request->email;
-    	$cm->phone = $request->phone;
-    	$cm->message = $request->message;
-    	$cm->save();
-        Mail::to($cm)->queue(new EmailContact($cm));
+        if($request->ajax()) {
+            $this->validate($request, [
+                'name' => 'required|string',
+                'email' => 'required|email',
+                'message' => 'required|string',
+                'captcha' => 'required|captcha',
+
+            ]);
+
+        	$cm = new Contact;
+        	$cm->name = $request->name;
+        	$cm->email = $request->email;
+        	$cm->message = $request->message;
+        	$cm->save();
+            Mail::to($cm)->queue(new EmailContact($cm));
+
+            return $cm;
+        }
     }
 }

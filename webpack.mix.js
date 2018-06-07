@@ -13,3 +13,10 @@ const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.js('resources/assets/frontend/knight/js/app.js', 'public/frontend/knight/js')
+	.sass('resources/assets/frontend/knight/sass/app.scss', 'public/frontend/knight/css');
+
+mix.copy('resources/assets/frontend/knight/css', 'public/frontend/knight/css')
+	.copy('resources/assets/frontend/knight/img', 'public/frontend/knight/img');
+

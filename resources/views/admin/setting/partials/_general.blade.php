@@ -25,24 +25,24 @@
 					<td class="col-sm-6">
 						<div class="thumbnail">
 							<a href="javascript:" data-toggle="modal" data-target="#logoModal" class="logoImgBtn" data-urllogo="{{ route('setting.logo') }}" data-urlicon="{{ route('setting.icon') }}">
-								<img @if(count($setting->first()->images->where('pivot.is_maskot', '=', 1)->first())) src="{{ url($setting->first()->images->where('pivot.is_maskot', '=', 1)->first()->thumbnail->location) }}" @else src="{{ url($images->where('id', '=', 1)->first()->thumbnail->location) }}" @endif alt="" class="img-thumbnail img-responsive">
+								<img @if(!empty($setting->first()->images->where('pivot.is_maskot', '=', 1)->first())) src="{{ url($setting->first()->images->where('pivot.is_maskot', '=', 1)->first()->thumbnail->location) }}" @else src="{{ url($images->where('id', '=', 1)->first()->thumbnail->location) }}" @endif alt="" class="img-thumbnail img-responsive">
 							</a>
 						</div>
 					</td>
 					<td></td>
-					<input type="hidden" name="logo" id="logoinput" @if(count($setting->first()->images->where('pivot.is_maskot', '=', 1)->first())) value="{{ $setting->first()->images->where('pivot.is_maskot', '=', 1)->first()->id }}" @else value="{{ $images->where('id', '=', 1)->first()->id }}" @endif>
+					<input type="hidden" name="logo" id="logoinput" @if(!empty($setting->first()->images->where('pivot.is_maskot', '=', 1)->first())) value="{{ $setting->first()->images->where('pivot.is_maskot', '=', 1)->first()->id }}" @else value="{{ $images->where('id', '=', 1)->first()->id }}" @endif>
 				</tr>
 				<tr>
 					<th scope="col" class="col-sm-3">Site Icon</th>
 					<td class="col-sm-6">
 						<div class="thumbnail">
 							<a href="javascript:" data-toggle="modal" data-target="#iconModal" class="iconImgBtn" data-urllogo="{{ route('setting.logo') }}" data-urlicon="{{ route('setting.icon') }}">
-								<img @if(count($setting->first()->images->where('pivot.is_maskot', '=', 0)->first())) src="{{ url($setting->first()->images->where('pivot.is_maskot', '=', 0)->first()->thumbnail->location) }}" @else src="{{ url($images->where('id', '=', 1)->first()->thumbnail->location) }}" @endif alt="" class="img-thumbnail img-responsive">
+								<img @if(!empty($setting->first()->images->where('pivot.is_maskot', '=', 0)->first())) src="{{ url($setting->first()->images->where('pivot.is_maskot', '=', 0)->first()->thumbnail->location) }}" @else src="{{ url($images->where('id', '=', 1)->first()->thumbnail->location) }}" @endif alt="" class="img-thumbnail img-responsive">
 							</a>
 						</div>
 					</td>
 					<td></td>
-					<input type="hidden" name="icon" id="iconinput" @if(count($setting->first()->images->where('pivot.is_maskot', '=', 0)->first())) value="{{ $setting->first()->images->where('pivot.is_maskot', '=', 0)->first()->id }}" @else value="{{ $images->where('id', '=', 1)->first()->id }}" @endif> 
+					<input type="hidden" name="icon" id="iconinput" @if(!empty($setting->first()->images->where('pivot.is_maskot', '=', 0)->first())) value="{{ $setting->first()->images->where('pivot.is_maskot', '=', 0)->first()->id }}" @else value="{{ $images->where('id', '=', 1)->first()->id }}" @endif> 
 				</tr>
 				
 				@foreach($setting->first()->websitesocialmedias as $socmed)

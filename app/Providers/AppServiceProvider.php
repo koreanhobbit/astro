@@ -15,11 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
-
-        if (\App::environment('production')) {
-            \URL::forceScheme('https');
-        }
+        view()->composer('frontend.knight.layout.master', function($setting) {
+            $setting->with('setting', \App\Setting::first());
+        });
     }
 
     /**

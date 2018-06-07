@@ -42,6 +42,14 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $files = $request->file('file');
+        if(!Storage::exists('public/images/thumbnail/')) {
+                Storage::makeDirectory('public/images/thumbnail/');
+        }
+
+        if(!Storage::exists('public/images/imageMid/')) {
+            Storage::makeDirectory('public/images/imageMid/');
+        }
+
         foreach($files as $file) {
             $filename = uniqid() . '_' . time() . '_' . 'original' . '_' . $file->getClientOriginalName();
 
