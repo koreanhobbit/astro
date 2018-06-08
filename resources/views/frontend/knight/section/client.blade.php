@@ -8,11 +8,11 @@
 			</div>
 		</div>
 		<ul class="client wow fadeIn delay-05s">
-			<li><a href="#">
-        	<img src="{{ asset('frontend/knight/img/client/client1.jpg') }}" alt="">
-            <h3>Terry</h3>
-            <span>JobsBank.</span>
-        </a></li>
+			<li>
+        		<img src="{{ asset('frontend/knight/img/client/client1.jpg') }}" alt="">
+            	<h3>Terry</h3>
+            	<span>JobsBank.</span>
+        	</li>
 		</ul>
 	</div>
 </section>

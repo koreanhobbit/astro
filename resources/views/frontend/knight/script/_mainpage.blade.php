@@ -96,6 +96,7 @@
 			var name = $('#name').val();
 			var email = $('#email').val();
 			var message = $('#message').val();
+			var captcha = $('#g-recaptcha-response').val();
 			$.ajax({
 				headers: {
         			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -107,6 +108,8 @@
 					'name': name,
 					'email': email,
 					'message': message,
+					'captcha' : captcha,
+
 				},
 				success:function(data) {
 					$('#success').html('Your message was sent! Thanks for contacting us!');
