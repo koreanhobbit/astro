@@ -114,6 +114,7 @@
 				success:function(data) {
 					$('#success').html('Your message was sent! Thanks for contacting us!');
 					$('.input-text').val('');
+					grecaptcha.reset();
 				},
 				error:function(data) {
     				var errors = data.responseJSON;
@@ -121,6 +122,7 @@
     				$('.error-email').text(errors.errors.email);
     				$('.error-message').text(errors.errors.message);
     				$('.error-captcha').text(errors.errors.captcha);
+    				grecaptcha.reset();
 				}
 			});
 
