@@ -13,7 +13,10 @@
 				</div>
 				<div class="contact-info-box email clearfix">
 					<h3><i class="fa-pencil"></i>email:</h3>
-					<span>astrowebstudio@gmail.com</span>
+					<span> 
+						<a href="mailto:admin@astrowebstudio.com">admin@astrowebstudio.com</a>
+						<a href="mailto:astrowebstudio@gmail.com">astrowebstudio@gmail.com</a>
+					</span>
 				</div>
 				<div class="contact-info-box hours clearfix">
 					<h3><i class="fa-clock-o"></i>Hours:</h3>
