@@ -12882,10 +12882,8 @@ __webpack_require__(9);
 __webpack_require__(10);
 __webpack_require__(11);
 __webpack_require__(12);
-// require('./contactform');
 __webpack_require__(13);
 __webpack_require__(14);
-// require('./respond-1.1.0.min.js');
 
 /***/ }),
 /* 9 */
